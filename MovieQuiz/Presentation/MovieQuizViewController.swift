@@ -17,7 +17,7 @@ final class MovieQuizViewController: UIViewController {
         showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
     }
     
-
+    
     @IBOutlet private var counterLabel: UILabel!
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var questionLabel: UILabel!
@@ -70,7 +70,7 @@ final class MovieQuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let currentQuestion = questions[currentQuestionIndex]
+        imageView.layer.cornerRadius = 20
         show(quiz: QuizStepViewModel(image: UIImage(named: "The Godfather") ?? UIImage(),
                                      question: "Рейтинг этого фильма больше чем 6?",
                                      questionNumber: "1/10"))
@@ -89,9 +89,9 @@ final class MovieQuizViewController: UIViewController {
     }
     
     struct QuizResultsViewModel {
-      let title: String
-      let text: String
-      let buttonText: String
+        let title: String
+        let text: String
+        let buttonText: String
     }
     
     private func convert(model: QuizQuestion) -> QuizStepViewModel {
@@ -107,8 +107,8 @@ final class MovieQuizViewController: UIViewController {
         counterLabel.text = step.questionNumber
         imageView.image = step.image
         questionLabel.text = step.question
-
-
+        
+        
     }
     private func show(quiz result: QuizResultsViewModel) {
         let alert = UIAlertController(
@@ -144,8 +144,8 @@ final class MovieQuizViewController: UIViewController {
         if isCorrect {
             correctAnswers += 1
             print(correctAnswers)
-                }
-
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.showNextQuestionOrResults()
         }
@@ -157,7 +157,7 @@ final class MovieQuizViewController: UIViewController {
                 title: "Этот раунд окончен!",
                 message: "Ваш результат \(correctAnswers)/10",
                 preferredStyle: .alert)
-           
+            
             let action = UIAlertAction(title: "Сыграть ещё раз", style: .default) { _ in
                 self.currentQuestionIndex = 0
                 self.correctAnswers = 0
@@ -185,56 +185,56 @@ final class MovieQuizViewController: UIViewController {
  Настоящий рейтинг: 9,2
  Вопрос: Рейтинг этого фильма больше чем 6?
  Ответ: ДА
-
-
+ 
+ 
  Картинка: The Dark Knight
  Настоящий рейтинг: 9
  Вопрос: Рейтинг этого фильма больше чем 6?
  Ответ: ДА
-
-
+ 
+ 
  Картинка: Kill Bill
  Настоящий рейтинг: 8,1
  Вопрос: Рейтинг этого фильма больше чем 6?
  Ответ: ДА
-
-
+ 
+ 
  Картинка: The Avengers
  Настоящий рейтинг: 8
  Вопрос: Рейтинг этого фильма больше чем 6?
  Ответ: ДА
-
-
+ 
+ 
  Картинка: Deadpool
  Настоящий рейтинг: 8
  Вопрос: Рейтинг этого фильма больше чем 6?
  Ответ: ДА
-
-
+ 
+ 
  Картинка: The Green Knight
  Настоящий рейтинг: 6,6
  Вопрос: Рейтинг этого фильма больше чем 6?
  Ответ: ДА
-
-
+ 
+ 
  Картинка: Old
  Настоящий рейтинг: 5,8
  Вопрос: Рейтинг этого фильма больше чем 6?
  Ответ: НЕТ
-
-
+ 
+ 
  Картинка: The Ice Age Adventures of Buck Wild
  Настоящий рейтинг: 4,3
  Вопрос: Рейтинг этого фильма больше чем 6?
  Ответ: НЕТ
-
-
+ 
+ 
  Картинка: Tesla
  Настоящий рейтинг: 5,1
  Вопрос: Рейтинг этого фильма больше чем 6?
  Ответ: НЕТ
-
-
+ 
+ 
  Картинка: Vivarium
  Настоящий рейтинг: 5,8
  Вопрос: Рейтинг этого фильма больше чем 6?
